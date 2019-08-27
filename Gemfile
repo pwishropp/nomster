@@ -73,4 +73,6 @@ end
 
 gem "font-awesome-rails"
 gem 'devise'
-gem 'kaminari'
+gem 'kaminari'  
+gem 'geocoder'
+gem 'figaro'
