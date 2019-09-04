@@ -1,4 +1,13 @@
 <div class="booyah-box col-10 offset-1">
+   <div class="container">
+      <% if flash[:error].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:error].html_safe %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br/><br/>
@@ -35,17 +44,12 @@
 <br />
 
 
-  <div class="float-right">
-   <% if current_user && current_user == @place.user %>
-    <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-    <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
-  <% end %>
-</div>
-<div class="mt-4">
-  </div>
-</div>
 
-
+<div class="float-right">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sml" data-toggle="modal" data-target="#myModal">
+  Add Comment
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -55,7 +59,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
       </div>
       <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
         <div class="modal-body">
@@ -64,21 +68,57 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+          <%= f.submit "Add Comment", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
 
-<div class="col-10 offset-1">
-<h1 class="float-left">Comments</h1>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-  Add a comment
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sml" data-toggle="modal" data-target="#myModal1">
+Add Photo
 </button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModal1Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModal1Label">Add Photo</h4>
+      </div>
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+      <div class="modal-body">
+        <%= f.input :picture %>
+        <%= f.input :caption, placeholder: "Best food ever!" %>
+        <br />
+      </div>      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Add Photo", class: 'btn btn-primary' %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+   <% if current_user && current_user == @place.user %>
+    <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+  <% end %>
+</div>
+<div class="mt-4">
+  </div>
+</div>
 </div>
 
+
+
+<div class="col-10 offset-1">
+<h1 class="float-left">Comments</h1>
 <div class="row">
   <% @place.comments.each do |comment| %>
     <div class="col-10 col-sm-4 offset-1">
@@ -101,45 +141,28 @@
   <% end %>
 </div>
 
-<div class="clear"></div>
+<br />
 
-
-<div class="col-10 offset-1">
-  <h1 class="float-left">Photos</h1>
-
-  <div class="clear"></div>
-
-
-<div class="booyah-box">
-  <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-    <%= f.input :picture %>
-    <%= f.input :caption %>
-    <br />
-    <%= f.submit "Add a photo", class: 'btn btn-primary' %>
-  <% end %>
-</div>
-  
-<div class="row">
+<h1 class="float-left">Photos</h1>
+  <div class="row">
   <% @place.photos.each do |photo| %>
     <div class="col-10 col-sm-4 offset-1">
       <blockquote>
-      <div class="row">
-        <div class="col-11 offset-1">
-          <%= image_tag photo.picture.url, class: 'img-fluid' %>
-          <b><%= photo.caption %></b> - <br/>
+        <div class="row">
+          <div class="col-11 offset-1">
+            <%= image_tag photo.picture.url, class: 'image-fluid' %>
+            <b><%= photo.caption %></b> - <br/>
+          </div>
         </div>
-      </div>
           <div class="row">
             <div class="col-11 offset-1">
-      <small><%= photo.user.email %></small>
+              <small><%= photo.user.email %></small>
             </div>
           </div>
       </blockquote>
     </div>
-  <% end %>
-</div>
-
-
+    <% end %>
+  </div>
 
 
 
