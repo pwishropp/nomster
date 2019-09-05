@@ -1,26 +1,46 @@
-<% @places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
-    <h1><%= link_to place.name, place_path(place) %></h1><br />
-    <i><%= place.address %></i><br /><br />
-    <p><%= place.description %></p><br />
+    <% @places.each do |place| %>
+    <h1><%= link_to place.name, place_path(place) %></h1>
+    <i><%= place.address %></i>
+    <br /><br />
+    <p><%= place.description %></p>
 
     <% if place.user.present? %>
      <small><%= place.user.email %></small>
     <% end %>
 
 <% if place.comments.present? %>
-<div class="col-12">
+<div class="col-4">
   <blockquote>
     <% if place.comments.last.humanized_rating.present? %>
       <b><%= place.comments.last.humanized_rating %></b> -
     <% end %>
     <%= place.comments.last.message %>
+    <br />
     <small><%= place.comments.last.user.email %></small>
   </blockquote>
 </div>
 <% end %>
 
-  </div>
+<% if place.photos.present? %>
+<div class="col-4">
+  <blockquote>
+    <% if place.photos.last.caption.present? %>
+    <%= image_tag place.photos.last.picture.url, size: '250x250', class: 'image-fluid' %>
+    <br />
+    <br />
+    <% end %>
+    <b><%= place.photos.last.caption %></b> 
+    <br />
+    <small><%= place.photos.last.user.email %></small>
+  </blockquote>
+</div>
 <% end %>
+
+  </div>
+  
+<% end %>
+
+
 
 <%= paginate @places %>

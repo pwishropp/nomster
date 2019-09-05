@@ -13,14 +13,22 @@
   padding: 20px;
 }
 
-h1,h2, h3, h4, h5, h6 {
+.blue-box {
+}
+
+h1 {
+  color: #117CFA
+
+}
+
+h2, h3, h4, h5, h6 {
   margin:0;
   padding:0;
 }
 
 body {
   background: image_url('cream_pixels.png');
-  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 
 }
 
@@ -30,7 +38,7 @@ body {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #0DEF14;
+  color: #117CFA;
   font-family:'quicksandregular', sans-serif;
   font-size: 26px;
   
@@ -62,7 +70,7 @@ blockquote {
 }
 
 blockquote:before {
-  color: #ccc;
+  color: #117CFA;
   content: open-quote;
   font-size: 4em;
   line-height: 0.1em;
@@ -72,9 +80,4 @@ blockquote:before {
 
 blockquote p {
   display: inline;
-}
-
-.image_capture {
-max-height: 25px;
-
 }

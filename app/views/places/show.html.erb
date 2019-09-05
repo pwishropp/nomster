@@ -124,7 +124,7 @@ Add Photo
     <div class="col-10 col-sm-4 offset-1">
       <blockquote>
         <div class="row">
-          <div class="col-11 offset-1">
+          <div class="blue-box col-11 offset-1">
             <% if comment.humanized_rating.present? %>
               <b><%= comment.humanized_rating %></b> -
             <% end %>
@@ -150,7 +150,8 @@ Add Photo
       <blockquote>
         <div class="row">
           <div class="col-11 offset-1">
-            <%= image_tag photo.picture.url, size: '500x500', class: 'image-fluid' %>
+            <%= image_tag photo.picture.url, size: '250x250', class: 'image-fluid' %>
+            <br  />           
             <b><%= photo.caption %></b> - <br/>
           </div>
         </div>
