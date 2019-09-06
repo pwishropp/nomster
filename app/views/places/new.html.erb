@@ -1,9 +1,9 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Enter Your Place Details</h1>
    <%= simple_form_for @place do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
+    <%= f.input :name, placeholder: "Your Favourite Restaurant" %>
+    <%= f.input :address, placeholder: "123 Any Street, Toronto, Ontario, M1M 1M1" %>
+    <%= f.input :description, placeholder: "Best...." %>
     <br />
     <%= f.submit 'Create', class: 'btn btn-primary' %>
   <% end %>
