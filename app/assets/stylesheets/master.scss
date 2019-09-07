@@ -87,8 +87,9 @@ blockquote p {
 }
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  width: 100%;
+  width: 75%;
   max-height: 450px;
+  margin-left: 12.5%;
 
 }
 
@@ -98,9 +99,9 @@ blockquote p {
   font-weight: 100;
   text-shadow: rgba(0, 0, 0, 0.95) 2px 2px;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
+  width: 75%;
   position: absolute;
-  left: 0;
+  left: 12.5%;
 }
 
 .carousel {
