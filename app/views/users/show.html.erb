@@ -1,10 +1,12 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <div class="booyah-box">
   <div class="row">
     <div class='col-4'>
       <%= image_tag 'user.png', size:'250x250' %>
     </div>
 
-    <div class="col-8">
+    <div class="float-right col-8">
       <h1><%= @user.email %></h1>
       <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
       <h4><%= @user.comments.count %> Total Comments</h4>
@@ -12,7 +14,7 @@
     </div>
   </div>
   <div class="clear"></div>
-</div>
+
 
 <br /><br />
 <h1 class="text-center">My Comments</h1>
@@ -59,3 +61,4 @@
     <% end %>
   </div>
   <% end %>
+  </div>
