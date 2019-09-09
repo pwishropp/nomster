@@ -21,17 +21,31 @@ $special-color: #117CFA;
 
 h1 {
   color: $special-color;
+  font-family: 'quicksandregular', sans-serif;
+  font-weight: bold;
+  margin:0;
+  padding:0;
+
 
 }
 
-h2, h3, h4, h5, h6 {
+h2 {
+  font-family: 'quicksandregular', sans-serif;
+  font-weight: bold;
+  margin:0;
+  padding:0;
+
+}
+
+h3, h4, h5, h6 {
+  font-family: 'quicksandregular', sans-serif;
   margin:0;
   padding:0;
 }
 
 body {
   background: image_url('cream_pixels.png');
-   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 
 }
 
@@ -87,9 +101,8 @@ blockquote p {
 }
 
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
-  width: 75%;
-  max-height: 450px;
-  margin-left: 12.5%;
+  width: 100%;
+  max-height: 400px;
 
 }
 
@@ -99,9 +112,9 @@ blockquote p {
   font-weight: 100;
   text-shadow: rgba(0, 0, 0, 0.95) 2px 2px;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 75%;
+  width: 100%;
   position: absolute;
-  left: 12.5%;
+  left: 0%;
 }
 
 .carousel {

@@ -1,23 +1,23 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <div class="booyah-box">
   <div class="row">
-    <div class='col-4'>
+    <div class="col-4">
       <%= image_tag 'user.png', size:'250x250' %>
+      <h3><%= @user.email %></h3>
     </div>
 
-    <div class="float-right col-8">
-      <h1><%= @user.email %></h1>
-      <h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
-      <h4><%= @user.comments.count %> Total Comments</h4>
-      <h4><%= @user.comments.where(rating: '5_Stars').count %> Total 5 Star Reviews</h4>
+    <div class="col-8">
+      <u><h3>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h3></u>
+      <br />
+      <h4>Total Comments: <%= @user.comments.count %></h4>
+      <br />
+      <h4>Total 5-Star Reviews: <%= @user.comments.where(rating: '5_Stars').count %> </h4>
     </div>
   </div>
   <div class="clear"></div>
 
 
 <br /><br />
-<h1 class="text-center">My Comments</h1>
+<h2 class="text-center">My Comments</h2>
 <br /><br />
 <div class="row">
   <% @user.comments.each do |comment| %>
@@ -36,7 +36,7 @@
 
 <div class="clear"></div>
 <br /><br />
-<h1 class="text-center">My Places</h1>
+<h2 class="text-center">My Places</h2>
 <br /><br />
 <% @user.places.each do |place| %>
   <div class="booyah-box col-10 offset-1">
